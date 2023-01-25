@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import environment from 'src/environments/environment';
 
 @Component({
   selector: 'app-edit-movie',
@@ -16,19 +17,22 @@ export class EditMovieComponent {
   editNewMovie(e: Event) {
     this.disable = true
     const { addMovieName, addMovieGenre, addMovieImageUrl, addMovieSynopsis, addMovieYear } = window as any
-    this.http.put(`http://localhost:1337/movies/${this.movie?.id}`, {
+    this.http.put(`${environment.apiUrl}/api/movies/${this.movie?.id}`, {
       name: addMovieName.value,
       genre: addMovieGenre.value,
       imageUrl: addMovieImageUrl.value,
       synopsis: addMovieSynopsis.value,
       year: addMovieYear.value
-    }).subscribe((data) => {
-      this.disable = false
-      this.closeDialog.emit()
-      window.location.reload()
-    }, (err) => {
-      this.disable = false
-    })
+    }).subscribe({
+      next: () => {
+        this.disable = false
+        this.closeDialog.emit()
+        window.location.reload()
+      }, error: () => {
+        this.disable = false
+      }
+    }
+    )
   }
   closeModal() {
     this.closeDialog.emit()
