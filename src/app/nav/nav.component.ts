@@ -18,11 +18,17 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.queryCategories = this.apollo.watchQuery({
       query: CATEGORIES_QUERY
-    }).valueChanges.subscribe((result) => {
-      this.data = result.data
-      this.loading = result.loading
-      this.errors = result.errors
-    })
+    }).valueChanges.subscribe({
+      next: (result) => {
+        this.data = result.data
+        this.loading = result.loading
+        this.errors = result.errors
+        console.log('http response: ', result.data);
+      }, error: (err) => {
+        console.log('http error: ', err);
+      }
+    }
+    )
   }
   ngOnDestroy() {
     this.queryCategories.unsubscribe()
