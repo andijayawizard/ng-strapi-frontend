@@ -20,19 +20,20 @@ export class MovieListComponent {
     this.vRef = this.vc
   }
   fetchMovies() {
-    this.http.get(`${environment.apiUrl}/api/movies`).subscribe({
-      next: (data: any) => {
-        this.movies = data
-        console.log('http response: ', data);
-      },
-      error: (err) => {
-        console.log('http response error: ', err);
-      },
-      complete: () => {
-        console.log('http request complete');
+    this.http.get(`${environment.apiUrl}/api/movies`).subscribe(
+      {
+        next: (res: any) => {
+          this.movies = res.data
+          console.log('http response: ', res);
+        },
+        error: (err) => {
+          console.log('http response error: ', err);
+        },
+        complete: () => {
+          console.log('http request complete');
+        }
       }
-    }
-      // (data: any) =>(this.movies = data)
+      // (data: any) => (this.movies = data)
     )
   }
   showAddMovieDialog() {

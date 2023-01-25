@@ -11,10 +11,7 @@
     </div>
   </div>
   <div class="movielist">
-    <div *ngFor="let movie of movies">
-      datanya
-    </div>
-    <!-- <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card> -->
+    <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
   </div>
   <ng-container #vc></ng-container>
   <ng-template #modal>
