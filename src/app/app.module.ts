@@ -7,16 +7,18 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { MovieModule } from './modules/movie/movie.module';
 
 @NgModule({
   declarations: [
-    AppComponent, NavComponent, ArticlesComponent
+    AppComponent, NavComponent, ArticlesComponent, HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule, MovieModule
   ],
   providers: [],
   bootstrap: [AppComponent]

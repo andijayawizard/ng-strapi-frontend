@@ -1,0 +1,23 @@
+<div class="movielist-cnt">
+  <div class="movielist-breadcrumb">
+    <div>
+      <h2>Trending movies</h2>
+    </div>
+    <div>
+      <button class="btn" style="padding-left: 15px;padding-right: 15px;font-weight: 500;"
+        (click)="showAddMovieDialog()">
+        Add Movie
+      </button>
+    </div>
+  </div>
+  <div class="movielist">
+    <div *ngFor="let movie of movies">
+      datanya
+    </div>
+    <!-- <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card> -->
+  </div>
+  <ng-container #vc></ng-container>
+  <ng-template #modal>
+    <app-add-movie (closeDialog)="closeDialog()" (refreshMovies)="fetchMovies()"></app-add-movie>
+  </ng-template>
+</div>
