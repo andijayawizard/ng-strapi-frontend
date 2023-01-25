@@ -24,9 +24,9 @@ export class MovieViewComponent {
     })
   }
   deleteMovie() {
-    if (confirm('Do you really want to delete this movie?')) {
-      this.http.delete(`http://localhost:1337/movies/${this.movie?.id}`).subscribe((data) => {
-        this.router.navigate(['/'])
+    if (confirm(`Do you really want to delete ${this.movie.attributes.name} movie?`)) {
+      this.http.delete(`${environment.apiUrl}/api/movies/${this.movie?.id}`).subscribe((data) => {
+        this.router.navigate(['/movies'])
       })
     }
   }
