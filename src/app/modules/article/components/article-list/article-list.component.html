@@ -1,0 +1,9 @@
+<div>
+  <ng-container *ngIf="data">
+    <div *ngFor="let a of data">
+      <a routerLink="/article/{{a.id}}">
+        {{a.attributes.title}}
+      </a>
+    </div>
+  </ng-container>
+</div>

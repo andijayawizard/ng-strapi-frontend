@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MovieModule } from './modules/movie/movie.module';
+import { ArticleModule } from './modules/article/article.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { MovieModule } from './modules/movie/movie.module';
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
-    HttpClientModule, MovieModule
+    HttpClientModule, MovieModule, ArticleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
