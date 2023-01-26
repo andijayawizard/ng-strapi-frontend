@@ -3,8 +3,8 @@ import gql from "graphql-tag";
 const CATEGORIES_QUERY = gql`
   query Categories {
     categories {
-      data{
-        attributes{      
+      data {
+        attributes {      
           name
         }
       }

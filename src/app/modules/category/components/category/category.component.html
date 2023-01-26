@@ -1,0 +1,8 @@
+<ng-container *ngIf="categories">
+  <div *ngFor="let c of categories">
+    <a routerLink="/categories/{{c.id}}">
+      <h4>{{c.attributes.name}}</h4>
+      <div>{{c.attributes.description}}</div>
+    </a>
+  </div>
+</ng-container>
