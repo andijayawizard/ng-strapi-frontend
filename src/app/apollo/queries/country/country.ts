@@ -3,13 +3,21 @@ import gql from "graphql-tag";
 const COUNTRIES = gql`
   {
     countries{
-      name
-      capital
-      currency
-      emoji
-      phone
-      continent{
-        name
+      data{
+        attributes{
+          name
+          capital
+          currency
+          emoji
+          phone
+          continent{
+            data{
+              attributes{
+                name
+              }
+            }
+          }
+        }
       }
     }
   }
