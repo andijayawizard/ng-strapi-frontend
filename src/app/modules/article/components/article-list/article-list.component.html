@@ -19,7 +19,7 @@
           <td>{{a.attributes.category}}</td>
           <td>{{a.attributes.image}}</td>
           <td>
-            <a>Detail</a>
+            <a [routerLink]="['/article/',a.id]">Detail</a>
             <a>Edit</a>
           </td>
         </tr>
